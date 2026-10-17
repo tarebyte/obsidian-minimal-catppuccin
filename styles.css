@@ -1,0 +1,297 @@
+/* Catppuccin Latte (light) */
+
+/*
+Catppuccin Latte, adapted from Minimal's Catppuccin color scheme.
+MIT License
+Copyright (c) 2021 Catppuccin
+https://github.com/catppuccin/catppuccin
+*/
+
+body.minimal-theme.theme-light.minimal-catppuccin-light {
+    --color-red-rgb: 210, 15, 57;
+    --color-orange-rgb: 254, 100, 11;
+    --color-yellow-rgb: 223, 142, 29;
+    --color-green-rgb: 64, 160, 43;
+    --color-cyan-rgb: 23, 146, 153;
+    --color-blue-rgb: 30, 102, 245;
+    --color-purple-rgb: 136, 57, 239;
+    --color-pink-rgb: 234, 118, 203;
+
+    --color-red: #d20f39;
+    --color-orange: #fe640b;
+    --color-yellow: #df8e1d;
+    --color-green: #40a02b;
+    --color-cyan: #179299;
+    --color-blue: #1e66f5;
+    --color-purple: #8839ef;
+    --color-pink: #ea76cb;
+
+    --link-color: var(--color-blue);
+    --link-color-hover: #04a5e5;
+    --link-unresolved-color: var(--color-blue);
+    --link-external-color: var(--color-blue);
+    --link-external-color-hover: #04a5e5;
+    --tag-color: var(--color-blue);
+    --tag-color-hover: #04a5e5;
+    --caret-color: #dc8a78;
+    --text-success: var(--color-green);
+    --text-warning: var(--color-yellow);
+    --text-error: var(--color-red);
+    --text-on-accent-inverted: var(--sp1);
+
+    --code-normal: var(--tx1);
+    --code-comment: #7c7f93;
+    --code-function: var(--color-blue);
+    --code-important: var(--color-pink);
+    --code-keyword: var(--color-purple);
+    --code-operator: #04a5e5;
+    --code-property: #7287fd;
+    --code-punctuation: #7c7f93;
+    --code-string: var(--color-green);
+    --code-tag: var(--color-blue);
+    --code-value: var(--color-orange);
+
+    --base-h: 220;
+    --base-s: 23.076923%;
+    --base-l: 94.901961%;
+
+    --accent-h: 230.935252;
+    --accent-s: 97.202797%;
+    --accent-l: 71.960784%;
+
+    --bg1: #eff1f5;
+    --bg2: #dce0e8;
+    --bg3: rgba(156, 160, 176, 0.25);
+
+    --ui1: #ccd0da;
+    --ui2: #bcc0cc;
+    --ui3: #acb0be;
+
+    --tx1: #4c4f69;
+    --tx2: #5c5f77;
+    --tx3: #8c8fa1;
+
+    --sp1: #1e1e2e;
+
+    --hl1: rgba(124, 127, 147, 0.25);
+    --hl2: rgba(223, 142, 29, 0.2);
+}
+
+body.minimal-theme.theme-light.minimal-catppuccin-light.minimal-light-tonal {
+    --bg2: #eff1f5;
+}
+
+body.minimal-theme.theme-light.minimal-catppuccin-light.minimal-light-white {
+    --bg1: white;
+    --bg3: #eff1f5;
+    --ui1: #dce0e8;
+}
+
+/* Obsidian has no visited-link color variable. */
+body.minimal-theme.theme-light.minimal-catppuccin-light .external-link:visited {
+    color: #7287fd;
+}
+
+body.minimal-theme.theme-light.minimal-catppuccin-light .external-link:visited:hover {
+    color: #04a5e5;
+}
+
+/* Catppuccin Mocha (dark, and dark areas of Latte High contrast) */
+
+/*
+Catppuccin Mocha, adapted from Minimal's Catppuccin color scheme.
+MIT License
+Copyright (c) 2021 Catppuccin
+https://github.com/catppuccin/catppuccin
+*/
+
+body.minimal-theme.theme-dark.minimal-catppuccin-dark,
+body.minimal-theme.theme-light.minimal-catppuccin-light.minimal-light-contrast :is(
+    .theme-dark,
+    .titlebar,
+    .workspace-drawer.mod-primary,
+    .mod-primary-split,
+    .workspace-ribbon.mod-primary:not(.is-collapsed)
+),
+body.minimal-theme.theme-light.minimal-catppuccin-light.minimal-light-contrast.minimal-status-off .status-bar {
+    --color-red-rgb: 243, 139, 168;
+    --color-orange-rgb: 250, 179, 135;
+    --color-yellow-rgb: 249, 226, 175;
+    --color-green-rgb: 166, 227, 161;
+    --color-cyan-rgb: 148, 226, 213;
+    --color-blue-rgb: 137, 180, 250;
+    --color-purple-rgb: 203, 166, 247;
+    --color-pink-rgb: 245, 194, 231;
+
+    --color-red: #f38ba8;
+    --color-orange: #fab387;
+    --color-yellow: #f9e2af;
+    --color-green: #a6e3a1;
+    --color-cyan: #94e2d5;
+    --color-blue: #89b4fa;
+    --color-purple: #cba6f7;
+    --color-pink: #f5c2e7;
+
+    --link-color: var(--color-blue);
+    --link-color-hover: #89dceb;
+    --link-unresolved-color: var(--color-blue);
+    --link-external-color: var(--color-blue);
+    --link-external-color-hover: #89dceb;
+    --tag-color: var(--color-blue);
+    --tag-color-hover: #89dceb;
+    --caret-color: #f5e0dc;
+    --text-success: var(--color-green);
+    --text-warning: var(--color-yellow);
+    --text-error: var(--color-red);
+    --text-on-accent-inverted: var(--sp1);
+
+    --code-normal: var(--tx1);
+    --code-comment: #9399b2;
+    --code-function: var(--color-blue);
+    --code-important: var(--color-pink);
+    --code-keyword: var(--color-purple);
+    --code-operator: #89dceb;
+    --code-property: #b4befe;
+    --code-punctuation: #9399b2;
+    --code-string: var(--color-green);
+    --code-tag: var(--color-blue);
+    --code-value: var(--color-orange);
+
+    --base-h: 240;
+    --base-s: 21.052632%;
+    --base-l: 14.901961%;
+
+    --accent-h: 231.891892;
+    --accent-s: 97.368421%;
+    --accent-l: 85.098039%;
+
+    --bg1: #1e1e2e;
+    --bg2: #11111b;
+    --bg3: rgba(108, 112, 134, 0.25);
+
+    --ui1: #313244;
+    --ui2: #45475a;
+    --ui3: #585b70;
+
+    --tx1: #cdd6f4;
+    --tx2: #a6adc8;
+    --tx3: #7f849c;
+
+    --sp1: #1e1e2e;
+
+    --hl1: rgba(147, 153, 178, 0.25);
+    --hl2: rgba(249, 226, 175, 0.2);
+}
+
+/* Resolve semantic colors locally instead of inheriting the light body's values. */
+body.minimal-theme.theme-light.minimal-catppuccin-light.minimal-light-contrast :is(
+    .theme-dark,
+    .titlebar,
+    .workspace-drawer.mod-primary,
+    .mod-primary-split,
+    .workspace-ribbon.mod-primary:not(.is-collapsed)
+),
+body.minimal-theme.theme-light.minimal-catppuccin-light.minimal-light-contrast.minimal-status-off .status-bar {
+    --ax1: hsl(var(--accent-h), var(--accent-s), var(--accent-l));
+    --ax2: hsl(var(--accent-h), var(--accent-s), calc(var(--accent-l) + 8%));
+    --ax3: hsl(var(--accent-h), var(--accent-s), calc(var(--accent-l) - 5%));
+    --tx4: hsl(var(--base-h), calc(var(--base-s) - 10%), calc(var(--base-l) + 50%));
+    --icon-hex: black;
+
+    --background-modifier-accent: var(--ax3);
+    --background-modifier-border-focus: var(--ui3);
+    --background-modifier-border-hover: var(--ui2);
+    --background-modifier-border: var(--ui1);
+    --background-modifier-form-field-highlighted: var(--bg1);
+    --background-modifier-form-field: var(--bg1);
+    --background-modifier-success: var(--color-green);
+    --background-modifier-hover: var(--bg3);
+    --background-modifier-active-hover: var(--bg3);
+    --background-primary: var(--bg1);
+    --background-primary-alt: var(--bg2);
+    --background-secondary: var(--bg2);
+    --background-secondary-alt: var(--bg1);
+    --background-table-rows: var(--bg2);
+    --mobile-sidebar-background: var(--bg1);
+
+    --checkbox-color: var(--ax3);
+    --divider-color: var(--ui1);
+    --frame-divider-color: var(--ui1);
+    --icon-color-active: var(--tx1);
+    --icon-color-focused: var(--tx1);
+    --icon-color-hover: var(--tx2);
+    --icon-color: var(--tx2);
+    --interactive-normal: var(--bg3);
+    --interactive-accent-hover: var(--ax1);
+    --interactive-accent: var(--ax3);
+    --interactive-hover: var(--ui1);
+    --list-marker-color: var(--tx3);
+    --nav-item-background-active: var(--bg3);
+    --nav-item-background-hover: var(--bg3);
+    --nav-item-color: var(--tx2);
+    --nav-item-color-active: var(--tx1);
+    --nav-item-color-hover: var(--tx1);
+    --nav-item-color-selected: var(--tx1);
+    --nav-collapse-icon-color: var(--tx2);
+    --nav-collapse-icon-color-collapsed: var(--tx2);
+    --nav-indentation-guide-color: var(--ui1);
+    --prompt-border-color: var(--ui3);
+    --quote-opening-modifier: var(--ui2);
+    --ribbon-background: var(--bg2);
+    --search-result-background: var(--bg1);
+    --tab-text-color-focused-active: var(--tx1);
+    --tab-outline-color: var(--ui1);
+
+    --text-accent-hover: var(--ax2);
+    --text-accent: var(--ax1);
+    --text-blockquote: var(--tx2);
+    --text-bold: var(--tx1);
+    --text-code: var(--tx4);
+    --text-faint: var(--tx3);
+    --text-highlight-bg: var(--hl2);
+    --text-italic: var(--tx1);
+    --text-muted: var(--tx2);
+    --text-normal: var(--tx1);
+    --text-on-accent: var(--sp1);
+    --text-selection: var(--hl1);
+    --text-formatting: var(--tx3);
+    --title-color-inactive: var(--tx2);
+    --title-color: var(--tx1);
+    --titlebar-background: var(--bg2);
+    --titlebar-background-focused: var(--bg2);
+    --titlebar-text-color: var(--tx2);
+    --titlebar-text-color-focused: var(--tx1);
+    --vault-profile-color: var(--tx1);
+    --vault-profile-color-hover: var(--tx1);
+    --workspace-background-translucent: hsla(var(--base-h), var(--base-s), var(--base-l), 0.7);
+}
+
+body.minimal-theme.theme-dark.minimal-catppuccin-dark.minimal-dark-black {
+    --ui1: #1e1e2e;
+    --hl2: rgba(249, 226, 175, 0.3);
+}
+
+/* Obsidian has no visited-link color variable. */
+body.minimal-theme.theme-dark.minimal-catppuccin-dark .external-link:visited,
+body.minimal-theme.theme-light.minimal-catppuccin-light.minimal-light-contrast :is(
+    .theme-dark,
+    .titlebar,
+    .workspace-drawer.mod-primary,
+    .mod-primary-split,
+    .workspace-ribbon.mod-primary:not(.is-collapsed)
+) .external-link:visited,
+body.minimal-theme.theme-light.minimal-catppuccin-light.minimal-light-contrast.minimal-status-off .status-bar .external-link:visited {
+    color: #b4befe;
+}
+
+body.minimal-theme.theme-dark.minimal-catppuccin-dark .external-link:visited:hover,
+body.minimal-theme.theme-light.minimal-catppuccin-light.minimal-light-contrast :is(
+    .theme-dark,
+    .titlebar,
+    .workspace-drawer.mod-primary,
+    .mod-primary-split,
+    .workspace-ribbon.mod-primary:not(.is-collapsed)
+) .external-link:visited:hover,
+body.minimal-theme.theme-light.minimal-catppuccin-light.minimal-light-contrast.minimal-status-off .status-bar .external-link:visited:hover {
+    color: #89dceb;
+}

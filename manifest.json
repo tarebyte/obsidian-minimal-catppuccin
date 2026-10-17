@@ -1,0 +1,10 @@
+{
+	"id": "minimal-catppuccin",
+	"name": "Minimal Catppuccin",
+	"version": "1.0.0",
+	"minAppVersion": "1.13.0",
+	"description": "Official Catppuccin Latte and Mocha colors for Minimal Theme's Catppuccin color scheme.",
+	"author": "tarebyte",
+	"authorUrl": "https://github.com/tarebyte",
+	"isDesktopOnly": false
+}

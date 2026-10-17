@@ -1,48 +1,43 @@
-# Minimal Catppuccin
+# AGENTS.md
 
-CSS-only Obsidian plugin. It updates Minimal Theme's built-in **Catppuccin** color scheme to the official Catppuccin Latte (light) and Mocha (dark) colors.
+CSS-only Obsidian plugin that recolors Minimal Theme's built-in **Catppuccin** scheme with official Catppuccin Latte and Mocha colors. See `README.md` for user-facing behavior, color sources, and measured contrast.
 
-## How it works
+## Commands
 
-- `styles.css` holds all styling. Obsidian loads it while the plugin is enabled and removes it when the plugin is disabled.
-- `main.js` is hand-written and only exports an empty `Plugin` class. There is no build step, no `package.json`, and no dependencies. Keep it that way unless a feature truly needs code.
-- Rules only apply when Minimal Theme Settings adds its classes to `body`: `minimal-theme`, `minimal-catppuccin-light`, `minimal-catppuccin-dark`, and background classes such as `minimal-light-contrast`, `minimal-light-tonal`, `minimal-light-white`, `minimal-dark-black`, and `minimal-status-off`.
+There is no build, package manager, or test suite. Run these before every commit:
 
-## styles.css layout
+```sh
+# Validate JSON
+jq empty manifest.json versions.json
 
-- **Latte section:** scoped to `body.minimal-theme.theme-light.minimal-catppuccin-light`.
-- **Mocha section:** scoped to `body.minimal-theme.theme-dark.minimal-catppuccin-dark`. It also covers the dark areas of Latte **High contrast** (`.theme-dark`, `.titlebar`, `.workspace-drawer.mod-primary`, and similar). In High contrast, Minimal Theme Settings adds `theme-dark` to the left sidebar and ribbon, so Mocha must keep styling those areas.
-- Each section starts with its MIT license header. Keep both headers.
-- Set Minimal's variables (`--base-h/s/l`, `--accent-h/s/l`, `--bg1`, `--tx1`, `--ax1`, `--hl1`, `--hl2`, `--icon-hex`, and others) and Obsidian's `--color-*` variables. Do not hard-code colors on elements when a variable exists.
-- Do not change Minimal's other color schemes.
+# The manifest version must be listed in versions.json
+jq -e --arg v "$(jq -r .version manifest.json)" 'has($v)' versions.json
 
-## Color rules
+# Install into a test vault for manual checks
+cp main.js manifest.json styles.css "<Vault>/.obsidian/plugins/minimal-catppuccin/"
+```
 
-- Use official Catppuccin hex values only.
-- Accent is Lavender.
-- Code colors follow Catppuccin Neovim's default Treesitter mappings.
-- Other UI colors follow the Catppuccin style guide.
-- Document any intentional exception in `README.md` under **Readability notes**. For example, Latte uses Mocha Base text on Lavender controls for contrast.
+## Project layout
 
-## Testing
+- `styles.css`: all styling. Latte section first, then Mocha. Keep the MIT license header on each section.
+- `main.js`: hand-written empty `Plugin` class. Do not add a build step or dependencies unless a feature needs code.
+- `main.js`, `manifest.json`, and `styles.css` must stay at the repository root. The release workflow and BRAT expect them there.
 
-There are no automated tests. Test by hand in Obsidian:
+## Things that are not obvious
 
-1. Copy `main.js`, `manifest.json`, and `styles.css` to `<Vault>/.obsidian/plugins/minimal-catppuccin/`.
-2. Install Minimal Theme and Minimal Theme Settings. Select **Catppuccin** for both light and dark color schemes.
-3. Check Editing and Reading views with each background option:
-   - Latte: **Default**, **Low contrast**, **All white**, **High contrast**.
-   - Mocha: **Default**, **Low contrast**, **True black**.
-4. Also check the status bar turned off, the command palette, Graph view, and the mobile layout (`app.emulateMobile(true)` in the developer console; set it back to `false` afterward).
-5. Text should reach 4.5:1 contrast where the official palette allows it. If a value changes, update the numbers in `README.md`.
+- Rules only match when Minimal Theme Settings adds its `body` classes: `minimal-theme`, `minimal-catppuccin-light`, `minimal-catppuccin-dark`, and background classes such as `minimal-light-contrast` and `minimal-dark-black`. Without that plugin, `styles.css` does nothing.
+- In Latte **High contrast**, Minimal Theme Settings adds `theme-dark` to the left sidebar and ribbon. The Mocha section must keep its `.minimal-light-contrast :is(...)` selectors, or those dark areas lose their colors.
+- In **True black**, Minimal draws black through `--background-primary`, not `--bg1`. `--bg1` staying at Mocha Base is expected.
+- When testing, change Minimal options through the Minimal Theme Settings plugin (its settings plus `refresh()`), not by editing `body` classes. Editing classes directly gives wrong results.
 
-## Releases
+## Manual checks
 
-- Bump `version` in `manifest.json` (SemVer) and add the version → `minAppVersion` entry to `versions.json`.
-- Push a tag that exactly matches the version, with no leading `v`. `.github/workflows/release.yml` checks this and attaches `main.js`, `manifest.json`, and `styles.css` to the release.
+Check the background options and views listed under **Readability notes** in `README.md`. If a contrast value changes, update the number in `README.md`. Set `app.emulateMobile(false)` after any mobile test, because Obsidian keeps that setting.
+
+## Commits and releases
+
+- Use short imperative commit subjects, for example `Fix Latte callout title contrast`.
+- Update `README.md` in the same commit when behavior or measured contrast changes.
+- To release, bump `version` in `manifest.json`, add it to `versions.json`, commit, and push a tag that exactly matches the version with no leading `v`.
 - Never change the plugin `id` (`minimal-catppuccin`).
-
-## Rules
-
-- Keep the plugin offline. Do not add network calls, telemetry, or settings that send data.
-- Update `README.md` when behavior, supported options, or measured contrast changes.
+- Keep the plugin offline: no network calls or telemetry.

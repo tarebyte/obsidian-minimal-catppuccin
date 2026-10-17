@@ -96,6 +96,11 @@ body.minimal-theme.theme-light.minimal-catppuccin-light .external-link:visited:h
     color: #04a5e5;
 }
 
+/* Minimal draws status bar text in faint Overlay1 (2.8:1). Subtext1 reaches 4.5:1. */
+body.minimal-theme.theme-light.minimal-catppuccin-light .status-bar {
+    --text-faint: #5c5f77;
+}
+
 /* Catppuccin Mocha (dark, and dark areas of Latte High contrast) */
 
 /*
@@ -294,4 +299,10 @@ body.minimal-theme.theme-light.minimal-catppuccin-light.minimal-light-contrast :
 ) .external-link:visited:hover,
 body.minimal-theme.theme-light.minimal-catppuccin-light.minimal-light-contrast.minimal-status-off .status-bar .external-link:visited:hover {
     color: #89dceb;
+}
+
+/* Minimal draws status bar text in faint Overlay1 (4.4:1). Overlay2 reaches 4.5:1. */
+body.minimal-theme.theme-dark.minimal-catppuccin-dark .status-bar,
+body.minimal-theme.theme-light.minimal-catppuccin-light.minimal-light-contrast.minimal-status-off .status-bar {
+    --text-faint: #9399b2;
 }

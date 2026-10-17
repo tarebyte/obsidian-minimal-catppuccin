@@ -1,8 +1,8 @@
 # Minimal Catppuccin
 
-An Obsidian plugin that updates [Minimal Theme](https://github.com/kepano/obsidian-minimal)'s built-in **Catppuccin** color scheme to the current official [Catppuccin](https://github.com/catppuccin/catppuccin) Latte (light) and Mocha (dark) colors, with Lavender accents. It follows Minimal's [custom color scheme workflow](https://minimal.guide/features/color-schemes#Custom+color+schemes).
+Updates [Minimal Theme](https://github.com/kepano/obsidian-minimal)'s built-in **Catppuccin** color scheme to the official [Catppuccin](https://github.com/catppuccin/catppuccin) Latte and Mocha colors, with Lavender accents.
 
-The plugin contains only CSS. It has no settings, commands, or network access.
+CSS only. No settings, commands, or network access.
 
 ## Requirements
 
@@ -27,17 +27,14 @@ Code follows [Catppuccin Neovim's default mappings](https://github.com/catppucci
 
 ## Troubleshooting
 
-- If colors do not match, reset color overrides in Style Settings or turn off other color snippets.
-- If you used the earlier `catppuccin-latte.css` and `catppuccin-mocha.css` snippets, turn them off.
-- Turn off this plugin when you switch away from Minimal Theme.
+If colors do not match, reset color overrides in Style Settings or turn off other color snippets.
 
 ## Known limits
 
-- Some official Latte colors are hard to read on the light background: blue links, code colors, callout titles, and **Colorful headings**. The plugin keeps the official colors.
+- Official Latte blue links, code colors, callout titles, and **Colorful headings** are hard to read on the light background.
 - **Colorful frame** shows no color in Latte. In Mocha it is a bright blue that is not a Catppuccin color.
 
 ## Release
 
 1. Update `version` in `manifest.json` and add it to `versions.json`.
-2. Commit, then push a tag that exactly matches the version, without a leading `v` (for example `1.0.1`).
-3. The release workflow attaches `main.js`, `manifest.json`, and `styles.css` to the GitHub release.
+2. Commit, then push a tag that exactly matches the version, without a leading `v` (for example `1.0.1`). The release workflow attaches `main.js`, `manifest.json`, and `styles.css` to the GitHub release.

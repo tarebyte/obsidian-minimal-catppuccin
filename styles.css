@@ -306,3 +306,77 @@ body.minimal-theme.theme-dark.minimal-catppuccin-dark .status-bar,
 body.minimal-theme.theme-light.minimal-catppuccin-light.minimal-light-contrast.minimal-status-off .status-bar {
     --text-faint: #9399b2;
 }
+
+/* Mermaid. main.js adds body.ctp-mermaid and sets Mermaid's own colors when a
+   Catppuccin flavor is active, so the diagrams no longer need Obsidian's dark-mode inversion. */
+body.ctp-mermaid.theme-dark .mermaid > svg {
+    filter: none;
+}
+
+/* Wide diagrams are drawn at full size and get cut off. Scale them to the note width. */
+body.ctp-mermaid .mermaid > svg {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Color classes for flowchart nodes and subgraphs (`class id ctp-blue`) and sequence
+   participants (`properties id: {"class": "actor ctp-blue"}`). */
+body.ctp-mermaid .mermaid :is(.ctp-red, .ctp-orange, .ctp-yellow, .ctp-green, .ctp-cyan, .ctp-blue, .ctp-purple, .ctp-pink) {
+    &.ctp-red { --ctp-mermaid-rgb: var(--color-red-rgb); }
+    &.ctp-orange { --ctp-mermaid-rgb: var(--color-orange-rgb); }
+    &.ctp-yellow { --ctp-mermaid-rgb: var(--color-yellow-rgb); }
+    &.ctp-green { --ctp-mermaid-rgb: var(--color-green-rgb); }
+    &.ctp-cyan { --ctp-mermaid-rgb: var(--color-cyan-rgb); }
+    &.ctp-blue { --ctp-mermaid-rgb: var(--color-blue-rgb); }
+    &.ctp-purple { --ctp-mermaid-rgb: var(--color-purple-rgb); }
+    &.ctp-pink { --ctp-mermaid-rgb: var(--color-pink-rgb); }
+
+    &.node > :is(rect, path, polygon, circle, ellipse),
+    &.node > g > :is(rect, path, polygon, circle, ellipse) {
+        fill: rgba(var(--ctp-mermaid-rgb), 0.15) !important;
+        stroke: rgb(var(--ctp-mermaid-rgb)) !important;
+        stroke-width: 2px !important;
+    }
+
+    &.cluster > rect {
+        fill: rgba(var(--ctp-mermaid-rgb), 0.05) !important;
+        stroke: rgb(var(--ctp-mermaid-rgb)) !important;
+    }
+
+    &:is(rect.actor) {
+        fill: rgba(var(--ctp-mermaid-rgb), 0.15) !important;
+        stroke: rgb(var(--ctp-mermaid-rgb)) !important;
+        stroke-width: 2px !important;
+    }
+}
+
+/* Planned or optional parts: `class id ctp-dashed`. */
+body.ctp-mermaid .mermaid .ctp-dashed {
+    opacity: 0.75;
+
+    &.node > :is(rect, path, polygon, circle, ellipse),
+    &.node > g > :is(rect, path, polygon, circle, ellipse),
+    &.cluster > rect {
+        stroke-dasharray: 5 5 !important;
+    }
+}
+
+/* Clickable boxes (`class id internal-link`). Obsidian gives the whole box link color and an
+   underline, so set the text color on the box and underline only on hover. */
+body.ctp-mermaid .mermaid g.internal-link {
+    color: var(--text-normal) !important;
+    text-decoration: none !important;
+
+    &.mindmap-node {
+        color: var(--text-on-accent) !important;
+    }
+
+    & :is(span, p, div, a) {
+        color: inherit !important;
+        text-decoration: none !important;
+    }
+
+    &:hover :is(p, a) {
+        text-decoration: underline !important;
+    }
+}

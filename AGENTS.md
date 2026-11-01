@@ -24,7 +24,7 @@ See `README.md` for user-facing behavior and color sources.
 ## Project layout
 
 - `styles.css`: all styling. Latte section first, then Mocha. Keep the MIT license header on each section.
-- `main.js`: hand-written empty `Plugin` class. Do not add a build step or dependencies unless a feature needs code.
+- `main.js`: hand-written `Plugin` class that sets Mermaid theme colors from the active flavor's CSS variables. Do not add a build step or dependencies unless a feature needs code.
 - `main.js`, `manifest.json`, and `styles.css` must stay at the repository root. The release workflow and BRAT expect them there.
 
 ## Things that are not obvious
